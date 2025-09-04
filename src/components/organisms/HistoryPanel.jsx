@@ -70,7 +70,7 @@ const HistoryPanel = ({
         <div className="space-y-3">
           {history.map((file, index) => (
             <motion.div
-              key={file.Id}
+key={file.Id}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -79,7 +79,7 @@ const HistoryPanel = ({
               <div className="flex items-center space-x-4 flex-1 min-w-0">
                 <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                   <ApperIcon 
-                    name={getFileIcon(file.type)} 
+name={getFileIcon(file.type_c)}
                     className="w-5 h-5 text-primary" 
                   />
                 </div>
@@ -87,7 +87,7 @@ const HistoryPanel = ({
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center space-x-2">
                     <p className="text-sm font-medium text-white truncate">
-                      {file.name}
+{file.name_c}
                     </p>
                     <div className="flex items-center space-x-1 text-success">
                       <ApperIcon name="CheckCircle" className="w-4 h-4" />
@@ -95,24 +95,24 @@ const HistoryPanel = ({
                   </div>
                   <div className="flex items-center space-x-4 mt-1">
                     <p className="text-xs text-gray-400">
-                      {formatFileSize(file.size)}
+{formatFileSize(file.size_c)}
                     </p>
                     <p className="text-xs text-gray-400">
-                      {formatTimestamp(file.uploadedAt)}
+{formatTimestamp(file.uploaded_at_c)}
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center space-x-2 ml-4">
-                {file.url && (
+{file.url_c && (
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() => {
                       const link = document.createElement('a');
-                      link.href = file.url;
-                      link.download = file.name;
+                      link.href = file.url_c;
+                      link.download = file.name_c;
                       link.click();
                     }}
                     className="p-2 h-8 w-8"
